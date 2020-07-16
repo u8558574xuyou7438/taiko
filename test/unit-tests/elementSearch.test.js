@@ -1,4 +1,7 @@
-const expect = require('chai').expect;
+const chai = require('chai');
+const expect = chai.expect;
+const chaiAsPromised = require('chai-as-promised');
+chai.use(chaiAsPromised);
 const rewire = require('rewire');
 class DomRects {}
 const TEXT_NODE = 3;
@@ -8,13 +11,13 @@ describe('Element Search', () => {
 
   before(() => {
     Element = rewire('../../lib/elements/element');
-    elementSearch = rewire('../../lib/elementSearch');
+    elementSearch = rewire('../../lib/elementWrapper/elementSearch');
     getIfExists = elementSearch.getIfExists;
   });
 
   after(() => {
     Element = rewire('../../lib/elements/element');
-    elementSearch = rewire('../../lib/elementSearch');
+    elementSearch = rewire('../../lib/elementWrapper/elementSearch');
   });
 
   describe('Filter visible nodes', () => {
