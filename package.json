@@ -23,7 +23,9 @@
     "test-docs": "cd test/docs-tests && node prepare.js && eleventy && cd ./gauge && npm install && npm test",
     "install": "node lib/install.js",
     "update-json-doc": "node build/updateJsonDoc.js",
-    "postinstall": "node lib/documentation.js"
+    "postinstall": "node lib/documentation.js",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -65,7 +67,8 @@
     "is-reachable": "^5.0.0",
     "progress": "^2.0.3",
     "proxy-from-env": "^1.0.0",
-    "recast": "^0.20.1"
+    "recast": "^0.20.1",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
@@ -95,5 +98,6 @@
     "rewire": "^5.0.0",
     "sinon": "^9.0.1",
     "typescript": "^4.1.2"
-  }
+  },
+  "snyk": true
 }
